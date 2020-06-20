@@ -8,10 +8,10 @@ categories = Category.create!([
                               ])
 
 users = User.create!([
-               { username: 'Alex', password: '1' },
-               { username: 'Anton', password: '2' },
-               { username: 'Mark', password: '3' }
-             ])
+                       { username: 'Alex', password: '1' },
+                       { username: 'Anton', password: '2' },
+                       { username: 'Mark', password: '3' }
+                     ])
 
 tests = Test.create!([
                        { category_id: categories[0].id, title: 'JS', level: 1 },
@@ -32,9 +32,9 @@ Answer.create!([
                  { question_id: questions[2], body: 'Yes', correct: true },
                  { question_id: questions[2], body: 'No', correct: false }
                ])
-               
+
 TestPass.create!([
-        { user_id: users[0].id, test_id: tests[0].id },
-        { user_id: users[0].id, test_id: tests[0].id },
-        { user_id: users[2].id, test_id: tests[1].id }
-])              
+                   { user_id: users[0].id, test_id: tests[0].id },
+                   { user_id: users[0].id, test_id: tests[0].id },
+                   { user_id: users[2].id, test_id: tests[1].id }
+                 ])
