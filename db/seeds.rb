@@ -1,5 +1,5 @@
 # Create a dataset
-# run console: rails db:create db:migrate db:seed
+# run console: rails db:drop db:create db:migrate db:seed
 
 categories = Category.create!([
                                 { title: 'Frontend' },
@@ -7,7 +7,7 @@ categories = Category.create!([
                                 { title: 'Database' }
                               ])
 
-User.create!([
+users = User.create!([
                { username: 'Alex', password: '1' },
                { username: 'Anton', password: '2' },
                { username: 'Mark', password: '3' }
@@ -32,3 +32,9 @@ Answer.create!([
                  { question_id: questions[2], body: 'Yes', correct: true },
                  { question_id: questions[2], body: 'No', correct: false }
                ])
+               
+TestPass.create!([
+        { user_id: users[0].id, test_id: tests[0].id },
+        { user_id: users[0].id, test_id: tests[0].id },
+        { user_id: users[2].id, test_id: tests[1].id }
+])              
