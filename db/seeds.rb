@@ -10,13 +10,13 @@ categories = Category.create!([
 users = User.create!([
                        { username: 'Alex', password: '1' },
                        { username: 'Anton', password: '2' },
-                       { username: 'Mark', password: '3' }
+                       { username: 'Admin', password: 'Admin' }
                      ])
 
 tests = Test.create!([
-                       { category_id: categories[0].id, title: 'JS', level: 1 },
-                       { category_id: categories[1].id, title: 'Ruby', level: 2 },
-                       { category_id: categories[2].id, title: 'SQL', level: 3 }
+                       { category_id: categories[0].id, title: 'JS', level: 1, author: users[2] },
+                       { category_id: categories[1].id, title: 'Ruby', level: 2, author: users[2] },
+                       { category_id: categories[2].id, title: 'SQL', level: 3, author: users[2] }
                      ])
 
 questions = Question.create!([
@@ -26,11 +26,11 @@ questions = Question.create!([
                              ])
 
 Answer.create!([
-                 { question_id: questions[0], body: 'Yes', correct: true },
-                 { question_id: questions[0], body: 'No', correct: false },
-                 { question_id: questions[1], body: 'Yep!', correct: true },
-                 { question_id: questions[2], body: 'Yes', correct: true },
-                 { question_id: questions[2], body: 'No', correct: false }
+                 { question_id: questions[0].id, body: 'Yes', correct: true },
+                 { question_id: questions[0].id, body: 'No', correct: false },
+                 { question_id: questions[1].id, body: 'Yep!', correct: true },
+                 { question_id: questions[2].id, body: 'Yes', correct: true },
+                 { question_id: questions[2].id, body: 'No', correct: false }
                ])
 
 TestPass.create!([
