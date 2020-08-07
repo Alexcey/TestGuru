@@ -44,7 +44,7 @@ class TestsController < ApplicationController
   end
 
   def test_params
-    params.require(:test).permit(:category_id, :title, :level, :user_id)
+    params.require(:test).permit(:category_id, :title, :level, :author_id)
   end
 
   def rescue_test_not_found
