@@ -34,10 +34,10 @@ Answer.create!([
                  { question_id: questions[2].id, body: 'No', correct: false }
                ])
 
-TestPassage.create!([
-                   { user_id: users[0].id, test_id: tests[0].id },
-                   { user_id: users[0].id, test_id: tests[0].id },
-                   { user_id: users[2].id, test_id: tests[1].id }
-                 ])
+# TestPassage.create!([
+#                       { user_id: users[0].id, test_id: tests[0].id, current_question_id: questions[2].id },
+#                       { user_id: users[0].id, test_id: tests[0].id, current_question_id: questions[2].id },
+#                       { user_id: users[2].id, test_id: tests[1].id, current_question_id: questions[2].id }
+#                     ])
 
 puts 'end db:seed'
