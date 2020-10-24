@@ -22,6 +22,8 @@ tests = Test.create!([
 
 questions = Question.create!([
                                { test_id: tests[0].id, body: 'JS is hard?' },
+                               { test_id: tests[0].id, body: 'console.log(null == undefined)?' },
+                               { test_id: tests[0].id, body: 'console.log(null === undefined)?' },
                                { test_id: tests[1].id, body: 'Ruby is beautiful?' },
                                { test_id: tests[2].id, body: 'SQL is best?' }
                              ])
@@ -29,9 +31,14 @@ questions = Question.create!([
 Answer.create!([
                  { question_id: questions[0].id, body: 'Yes', correct: true },
                  { question_id: questions[0].id, body: 'No', correct: false },
-                 { question_id: questions[1].id, body: 'Yep!', correct: true },
-                 { question_id: questions[2].id, body: 'Yes', correct: true },
-                 { question_id: questions[2].id, body: 'No', correct: false }
+                 { question_id: questions[1].id, body: 'True', correct: true },
+                 { question_id: questions[1].id, body: 'False', correct: false },
+                 { question_id: questions[2].id, body: 'True', correct: false },
+                 { question_id: questions[2].id, body: 'False', correct: true },
+                 { question_id: questions[3].id, body: 'Yep!', correct: true },
+                 { question_id: questions[4].id, body: 'No', correct: false },
+                 { question_id: questions[4].id, body: 'Yes', correct: true },
+                 { question_id: questions[4].id, body: 'No', correct: false }
                ])
 
 # TestPassage.create!([
