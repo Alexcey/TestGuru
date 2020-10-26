@@ -1,15 +1,9 @@
 module TestPassagesHelper
   def test_complete_message(test_passage)
     if (test_passage.success?)
-      'You have successfully passed the Test'
+      "<p>Successfully. Your score is: <span style='color: green'>#{test_passage.finish_percent}%</span</p>".html_safe
     else
-      'You did not pass the Test'
+      "<p>Failed. Your score is: <span style='color: red'>#{test_passage.finish_percent}%</span></p>".html_safe
     end
-  end
-
-  def colored_result(test_passage)
-    color = test_passage.success? ? 'green' : 'red'
-    "<span style='color: #{color}'>
-    #{test_passage.success_percent}</span>".html_safe
   end
 end

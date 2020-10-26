@@ -22,11 +22,11 @@ class TestPassage < ApplicationRecord
   end
 
   def success?
-    success_percent >= SUCCESS_PERCENT
+    finish_percent >= SUCCESS_PERCENT
   end
 
-  def success_percent
-    correct_questions/test.questions.size * 100
+  def finish_percent
+    correct_questions * 100/test.questions.size
   end
 
   private
