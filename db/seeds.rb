@@ -9,9 +9,9 @@ categories = Category.create!([
                               ])
 
 users = User.create!([
-                       { name: 'Alex', password: '1', email: 'alex@ya.ru' },
-                       { name: 'Anton', password: '2', email: 'anton@ya.ru' },
-                       { name: 'Admin', password: 'Admin', email: 'admin@ya.ru' }
+                       { username: 'Alex', password: '1', email: 'alex@ya.ru' },
+                       { username: 'Anton', password: '2', email: 'anton@ya.ru' },
+                       { username: 'Admin', password: 'Admin', email: 'admin@ya.ru' }
                      ])
 
 tests = Test.create!([
@@ -22,6 +22,8 @@ tests = Test.create!([
 
 questions = Question.create!([
                                { test_id: tests[0].id, body: 'JS is hard?' },
+                               { test_id: tests[0].id, body: 'console.log(null == undefined)?' },
+                               { test_id: tests[0].id, body: 'console.log(null === undefined)?' },
                                { test_id: tests[1].id, body: 'Ruby is beautiful?' },
                                { test_id: tests[2].id, body: 'SQL is best?' }
                              ])
@@ -29,15 +31,20 @@ questions = Question.create!([
 Answer.create!([
                  { question_id: questions[0].id, body: 'Yes', correct: true },
                  { question_id: questions[0].id, body: 'No', correct: false },
-                 { question_id: questions[1].id, body: 'Yep!', correct: true },
-                 { question_id: questions[2].id, body: 'Yes', correct: true },
-                 { question_id: questions[2].id, body: 'No', correct: false }
+                 { question_id: questions[1].id, body: 'True', correct: true },
+                 { question_id: questions[1].id, body: 'False', correct: false },
+                 { question_id: questions[2].id, body: 'True', correct: false },
+                 { question_id: questions[2].id, body: 'False', correct: true },
+                 { question_id: questions[3].id, body: 'Yep!', correct: true },
+                 { question_id: questions[4].id, body: 'No', correct: false },
+                 { question_id: questions[4].id, body: 'Yes', correct: true },
+                 { question_id: questions[4].id, body: 'No', correct: false }
                ])
 
-TestPass.create!([
-                   { user_id: users[0].id, test_id: tests[0].id },
-                   { user_id: users[0].id, test_id: tests[0].id },
-                   { user_id: users[2].id, test_id: tests[1].id }
-                 ])
+# TestPassage.create!([
+#                       { user_id: users[0].id, test_id: tests[0].id, current_question_id: questions[2].id },
+#                       { user_id: users[0].id, test_id: tests[0].id, current_question_id: questions[2].id },
+#                       { user_id: users[2].id, test_id: tests[1].id, current_question_id: questions[2].id }
+#                     ])
 
 puts 'end db:seed'

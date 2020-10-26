@@ -1,8 +1,8 @@
 class Test < ApplicationRecord
   belongs_to :category
   has_many :questions, dependent: :destroy
-  has_many :test_passes, dependent: :destroy
-  has_many :users, through: :test_passes
+  has_many :test_passages, dependent: :destroy
+  has_many :users, through: :test_passages
   belongs_to :author, class_name: 'User'
 
   validates :title, presence: true

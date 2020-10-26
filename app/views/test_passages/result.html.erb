@@ -1,0 +1,16 @@
+<h1>The <%= @test_passage.test.title %> Test was Completed!</h1>
+
+<h3><%= test_complete_message(@test_passage) %></h3>
+
+
+<p>finish_percent</p>
+<%= @test_passage.finish_percent %>
+<br>
+<p>correct_questions</p>
+<%= @test_passage.correct_questions %>
+<br>
+<p>test.questions.size</p>
+<%= @test_passage.test.questions.size %>
+<br>
+
+<%= link_to 'Go to Test List', tests_path %>
