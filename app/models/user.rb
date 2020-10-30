@@ -1,8 +1,13 @@
 class User < ApplicationRecord
+  EMAIL_FORMAT = /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i.freeze
 
   has_many :test_passages
   has_many :tests, through: :test_passages
   has_many :authored_tests, class_name: 'Test', foreign_key: 'author_id'
+
+  validate :name, presence: true, uniqueness: true
+  validate :email, presence: true, uniqueness: true,
+                   format: { with: EMAIL_FORMAT }
 
   has_secure_password
 

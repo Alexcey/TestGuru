@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-
   get 'sessions/new'
   get 'users/new'
 
@@ -7,6 +6,7 @@ Rails.application.routes.draw do
 
   get :signup, to: 'users#new'
   get :login, to: 'sessions#new'
+  get :logout, to: 'sessions#destroy'
 
   resources :users, only: :create
   resources :sessions, only: :create
@@ -26,5 +26,4 @@ Rails.application.routes.draw do
       get :result
     end
   end
-
 end
