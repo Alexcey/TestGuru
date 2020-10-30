@@ -5,8 +5,8 @@ class User < ApplicationRecord
   has_many :tests, through: :test_passages
   has_many :authored_tests, class_name: 'Test', foreign_key: 'author_id'
 
-  validate :name, presence: true, uniqueness: true
-  validate :email, presence: true, uniqueness: true,
+  validates :username, presence: true, uniqueness: true
+  validates :email, presence: true, uniqueness: true,
                    format: { with: EMAIL_FORMAT }
 
   has_secure_password
