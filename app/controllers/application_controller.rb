@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
   
+  before_action :authenticate_user!
   before_action :configure_permitted_parameters, if: :devise_controller?
 
   protected
@@ -8,12 +9,8 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:sign_up, keys: %i[first_name last_name])
   end
 
-  def after_sign_in_path_for(resource)
+  def after_sign_in_path_for(resource)  
     flash[:notice] = "Hello, #{current_user.first_name}!"
-    if resource.admin?
-      admin_tests_path
-    else
-      super
-    end
+    resource.admin? ? admin_tests_path : super
   end
 end
