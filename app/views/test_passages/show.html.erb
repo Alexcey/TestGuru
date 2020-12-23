@@ -1,6 +1,6 @@
-<h1>Passing the <%= @test_passage.test.title %> Test</h1>
+<h1><%= t('.header', title: @test_passage.test.title) %></h1>
 
-<h2>Question number: <%= @test_passage.current_question_number %> from <%= @test_passage.test.questions.size %></h2>
+<h2><%= t('.question_numbers', first: @test_passage.current_question_number, second: @test_passage.test.questions.size) %></h2>
 <h3>
   <%= @test_passage.current_question.body %>
 </h3>

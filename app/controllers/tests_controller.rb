@@ -1,5 +1,4 @@
 class TestsController < ApplicationController
-
   before_action :set_test, only: %i[start]
 
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_test_not_found
@@ -10,7 +9,7 @@ class TestsController < ApplicationController
 
   def start
     current_user.tests.push(@test)
-    redirect_to current_user.test_passage(@test)
+    redirect_to current_user.test_passage(@test), notice: t('.after_start_greeting')
   end
 
   private
