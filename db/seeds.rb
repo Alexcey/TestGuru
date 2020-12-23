@@ -9,15 +9,19 @@ categories = Category.create!([
                               ])
 
 users = User.create!([
-                       { password: '123123', email: 'alex@ya.ru' },
-                       { password: '123123', email: 'anton@ya.ru' },
-                       { password: 'Admin123', email: 'admin@ya.ru' }
+                       #{ password: '123123', email: 'alex@ya.ru' },
+                       { password: '123123', email: 'alex@ya.ru' }
+                     ])
+
+admin = Admin.create!([
+                       { email: 'leshasv2307@gmail.com', password: '123123',
+                         last_name: 'Last_name', first_name: 'First_name' }
                      ])
 
 tests = Test.create!([
-                       { category_id: categories[0].id, title: 'JS', level: 1, author: users[2] },
-                       { category_id: categories[1].id, title: 'Ruby', level: 2, author: users[2] },
-                       { category_id: categories[2].id, title: 'SQL', level: 3, author: users[2] }
+                       { category_id: categories[0].id, title: 'JS', level: 1, author: admin[0] },
+                       { category_id: categories[1].id, title: 'Ruby', level: 2, author: admin[0] },
+                       { category_id: categories[2].id, title: 'SQL', level: 3, author: admin[0] }
                      ])
 
 questions = Question.create!([
