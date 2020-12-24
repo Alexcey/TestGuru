@@ -1,13 +1,15 @@
 <h1><%= t("tests.index.header") %></h1>
 
-<table>
+<table class="table">
   <tr>
-    <th><%= t('.category') %></th>
-    <th><%= t('.title') %></th>
-    <th><%= t('.level') %></th>
-    <th><%= t('.author') %></th>
-    <th><%= t('.questions') %></th>
+    <th scope="col"><%= t('.category') %></th>
+    <th scope="col"><%= t('.title') %></th>
+    <th scope="col"><%= t('.level') %></th>
+    <th scope="col"><%= t('.author') %></th>
+    <th scope="col"><%= t('.questions') %></th>
   </tr>
-
-  <%= render @tests %>
+  <tbody>
+    <%= render @tests %>
+  </tbody>
 </table>
+

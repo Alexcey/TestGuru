@@ -1,11 +1,12 @@
-<%= form_with model: [:admin, @test, @question], local: true do |form| %>
+<%= form_with model: [:admin, @test, @question], local: true do |f| %>
+  <div class="form-group">
+    <%= render "shared/errors", resource: @question %>
 
-  <%= render 'shared/errors', resource: @question %>
+    <p>
+      <%= f.label :body %>
+      <%= f.text_field :body, id: :question_body, class: 'form-control' %>
+    </p>
 
-  <p>
-    <%= form.label :body  %>
-    <%= form.text_field :body, id: :question_body %>
-  </p>
-
-  <p><%= form.submit %></p>
+    <%= f.submit %>
+  </div>
 <% end %>

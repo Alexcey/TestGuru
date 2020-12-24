@@ -20,6 +20,9 @@ gem 'devise-i18n'
 # LOCALIZATION
 gem 'rails-i18n', '~> 6.0.0'
 
+gem 'jquery-rails'
+gem 'bootstrap', '~> 4.4.1'
+
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 end
