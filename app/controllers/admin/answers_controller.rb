@@ -1,5 +1,4 @@
 class Admin::AnswersController < Admin::BaseController
-
   before_action :set_question, only: %i[new create]
   before_action :set_answer, only: %i[show edit update destroy]
 
@@ -15,8 +14,7 @@ class Admin::AnswersController < Admin::BaseController
     @answer = @question.answers.new(answer_params)
 
     if @answer.save
-      flash[:notice] = "Answer was successfully created."
-      redirect_to admin_answer_path(@answer)
+      redirect_to admin_answer_path(@answer), notice: t('.success')
     else
       render :new
     end
@@ -24,8 +22,7 @@ class Admin::AnswersController < Admin::BaseController
 
   def update
     if @answer.update(answer_params)
-      flash[:notice] = "Answer was updated successuflly."
-      redirect_to admin_answer_path(@answer)
+      redirect_to admin_andswer_path(@answer), notice: t('.success')
     else
       render :edit
     end
@@ -33,8 +30,7 @@ class Admin::AnswersController < Admin::BaseController
 
   def destroy
     @answer.destroy
-    flash[:notice] = "Answer was deleted successuflly."
-    redirect_to admin_answer_path(@answer.question)
+    redirect_to admin_answer_path(@answer.question), notice: t('.success')
   end
 
   private
