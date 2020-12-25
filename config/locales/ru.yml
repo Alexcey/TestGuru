@@ -55,6 +55,9 @@ ru:
     show:
       header: "%{title} тест"
       question_numbers: "Вопрос %{first} из %{second}"
+    gist:
+      success: "Gist успешно создан, ссылка: %{link}"
+      failure: "Во время создания gist произошла ошибка!"
 
   tests:
     index:
