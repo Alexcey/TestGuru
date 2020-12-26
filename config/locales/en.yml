@@ -56,6 +56,10 @@ en:
       header: "%{title} test"
       question_numbers: "Questions number %{first} from %{second}"
       next: "Next"
+      gist_question: "Add question in your Gist"
+    gist:
+      success: "Gist was successfully created, link: %{link}"
+      failure: "An error occurred while saving gist"
 
   tests:
     index:
