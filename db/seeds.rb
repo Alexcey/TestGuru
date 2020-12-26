@@ -2,26 +2,16 @@
 # run console: rails db:drop db:create db:migrate db:seed
 puts 'start db:seed'
 
-categories = Category.create!([
-                                { title: 'Frontend' },
-                                { title: 'Backend' },
-                                { title: 'Database' }
-                              ])
+categories = Category.create!([{ title: 'Frontend' }, { title: 'Backend' }])
 
-#users = User.create!([
-#                       #{ password: '123123', email: 'alex@ya.ru' },
-#                       { password: '123123', email: 'alex@ya.ru' }
-#                     ])
-
-#admin = Admin.create!([
-#                       { email: 'leshasv2307@gmail.com', password: '123123',
-#                         last_name: 'Last_name', first_name: 'First_name' }
-#                     ])
+User.create!([{ password: '123123', email: 'alex13@ya.ru' }])
+admin = Admin.create!(password: '123123', email: 'alex12@ya.ru',
+                      first_name: 'Admin', last_name: 'Admin')
 
 tests = Test.create!([
-                       { category_id: categories[0].id, title: 'JS', level: 1, author: User.first },
-                       { category_id: categories[1].id, title: 'Ruby', level: 2, author: User.first },
-                       { category_id: categories[2].id, title: 'SQL', level: 3, author: User.first }
+                       { category_id: categories[0].id, title: 'JS', level: 1, author: admin.id },
+                       { category_id: categories[1].id, title: 'Ruby', level: 2, author: admin.id },
+                       { category_id: categories[2].id, title: 'SQL', level: 3, author: admin.id }
                      ])
 
 questions = Question.create!([
